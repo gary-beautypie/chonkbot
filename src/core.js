@@ -36,7 +36,44 @@ const createStatus = (payload, octokit) => {
   });
 };
 
+const getChonkImage = ({ additions, deletions, files }) => {
+  const score = (additions + deletions) * (files / 10);
+  if (score >= 5000) {
+    return "[](https://github.com/gary-beautypie/chonkbot/assets/oh_lawd_he_comin.jpg)";
+  }
+
+  if (score >= 2000) {
+    return "[](https://github.com/gary-beautypie/chonkbot/assets/megachonker.jpg)";
+  }
+
+  if (score >= 1000) {
+    return "[](https://github.com/gary-beautypie/chonkbot/assets/hefty_chonk.jpg)";
+  }
+
+  if (score >= 500) {
+    return "[](https://github.com/gary-beautypie/chonkbot/assets/heckin_chonker.jpg)";
+  }
+
+  if (score >= 200) {
+    return "[](https://github.com/gary-beautypie/chonkbot/assets/he_chomnk.jpg)";
+  }
+
+  return "[](https://github.com/gary-beautypie/chonkbot/assets/fine_boi.jpg)";
+};
+
+const createComment = (payload, octokit) => {
+  const { additions, deletions, changed_files: files } = payload.pull_request;
+
+  return octokit.issues.createComment({
+    owner: payload.pull_request.head.repo.owner.login,
+    repo: payload.pull_request.head.repo.name,
+    issue_number: payload.pull_request.number,
+    body: getChonkImage({ additions, deletions, files }),
+  });
+};
+
 module.exports = {
   calculateChonk,
   createStatus,
+  createComment,
 };
