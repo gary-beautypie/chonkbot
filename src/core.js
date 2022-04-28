@@ -39,26 +39,26 @@ const createStatus = (payload, octokit) => {
 const getChonkImage = ({ additions, deletions, files }) => {
   const score = (additions + deletions) * (files / 10);
   if (score >= 5000) {
-    return "[](https://github.com/gary-beautypie/chonkbot/blob/master/assets/oh_lawd_he_comin.jpg)";
+    return "[](https://github.com/gary-beautypie/chonkbot/blob/master/assets/oh_lawd_he_comin.jpg?raw=true)";
   }
 
   if (score >= 2000) {
-    return "[](https://github.com/gary-beautypie/chonkbot/blob/master/assets/megachonker.jpg)";
+    return "[](https://github.com/gary-beautypie/chonkbot/blob/master/assets/megachonker.jpg?raw=true)";
   }
 
   if (score >= 1000) {
-    return "[](https://github.com/gary-beautypie/chonkbot/blob/master/assets/hefty_chonk.jpg)";
+    return "[](https://github.com/gary-beautypie/chonkbot/blob/master/assets/hefty_chonk.jpg?raw=true)";
   }
 
   if (score >= 500) {
-    return "[](https://github.com/gary-beautypie/chonkbot/blob/master/assets/heckin_chonker.jpg)";
+    return "[](https://github.com/gary-beautypie/chonkbot/blob/master/assets/heckin_chonker.jpg?raw=true)";
   }
 
   if (score >= 200) {
-    return "[](https://github.com/gary-beautypie/chonkbot/blob/master/assets/he_chomnk.jpg)";
+    return "[](https://github.com/gary-beautypie/chonkbot/blob/master/assets/he_chomnk.jpg?raw=true)";
   }
 
-  return "[](https://github.com/gary-beautypie/chonkbot/blob/master/assets/fine_boi.png)";
+  return "[](https://github.com/gary-beautypie/chonkbot/blob/master/assets/fine_boi.png?raw=true)";
 };
 
 const createComment = (payload, octokit) => {
